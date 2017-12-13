@@ -298,3 +298,47 @@ const numberInArray = [
   1,
   2,
 ]
+
+5.1 - 当访问和使用一个对象的多条属性时 建议使用对象解构
+// bad
+function getFullName(user) {
+  const firstName = user.firstName;
+  const lastName = user.lastName;
+
+  return `${firstName} ${lastName}`;
+}
+
+// good
+function getFullName(user) {
+  const { firstName, lastName } = user;
+  return `${firstName} ${lastName}`;
+}
+
+// best
+function getFullName({ firstName, lastName }) {
+  return `${firstName} ${lastName}`;
+}
+
+5.2 - 使用数组的解构
+const arr = [1, 2, 3, 4];
+
+// bad
+const first = arr[0];
+const second = arr[1];
+
+// good
+const [first, second] = arr;
+
+5.3 - return返回多个值的时候 使用对象的解构而不是数组的解构
+// bad
+function processInput(input) {
+  return [left, right, top, bottom];
+}
+
+const [left,__, top] = processInput(input);
+
+// good
+function processInput(input) {
+	return { left, right, top, bottom };
+}
+const { left, top } = processInput(input);
