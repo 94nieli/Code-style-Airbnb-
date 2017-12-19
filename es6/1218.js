@@ -744,6 +744,24 @@ if (foo) {
   console.log(foo);
 }
 
+
+19.10 - 不要在中括号内部添加多余的数组
+// bad
+const foo = [ 1, 2, 3 ];
+console.log(foo[ 0 ]);
+
+// good
+const foo = [1, 2, 3];
+console.log(foo[0]);
+
+19.11 - 在花括号里面添加空格
+// bad
+const foo = {clark: 'kent'};
+
+// good
+const foo = { clark: 'kent' };
+
+
 19.12 - 避免一行超过100个字符 包括空格 当然 字符串不在此列
 / bad
 const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
